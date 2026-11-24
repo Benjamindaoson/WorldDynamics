@@ -8,6 +8,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - run: python -m pip install -e '.[test]' 'mujoco>=3.1' 'PyYAML>=6' 'ruff>=0.8'
+      - run: sudo apt-get update && sudo apt-get install -y xvfb xauth libgl1-mesa-dri
+      - run: python -m pip install -e '.[test]' 'mujoco>=3.1,<4' 'PyYAML>=6' 'ruff>=0.8'
       - run: python -m pip install 'torch>=2.3' --index-url https://download.pytorch.org/whl/cpu
-      - run: python -m pytest -q
+      - run: xvfb-run -a env MUJOCO_GL=glfw LIBGL_ALWAYS_SOFTWARE=1 python -m pytest -vv
