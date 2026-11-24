@@ -2,7 +2,13 @@
 
 Research code for **action-conditioned visual world models from sparse physical interventions**.
 
-**Status:** Early-stage research. Existing simplified RGB threshold experiments did **not** establish that paired-branch supervision beats independent supervision. No claim of CVPR-level novelty, real physics validation, or published-model reproduction is made.
+**Status of the `main` branch:** Early-stage research. Existing simplified RGB threshold experiments did **not** establish that paired-branch supervision beats independent supervision. No claim of CVPR-level novelty, real physics validation, or published-model reproduction is made.
+
+## Research snapshots and experimental evidence
+
+This default branch preserves the original sparse-intervention prototype. For the separately developed, audited MuJoCo experiments, see the [WorldDynamics V2 research branch](https://github.com/Benjamindaoson/WorldDynamics/tree/feat/worlddynamics-v2-complete), its [frozen confirmatory protocol](https://github.com/Benjamindaoson/WorldDynamics/blob/feat/worlddynamics-v2-complete/docs/CONFIRMATORY_PROTOCOL.md), and its [state-model baseline and confirmation report](https://github.com/Benjamindaoson/WorldDynamics/blob/feat/worlddynamics-v2-complete/docs/V2_BASELINE_REPORT.md).
+
+The V2 snapshot reports 72 scenes, 504 same-state action branches, 64-step trajectories, three training seeds and an eight-scene independent confirmation family. The primary action-conditioning comparison was negative. These are small-scale simulation experiments; they do not establish a novel algorithm, a general world-model advantage, or real-robot validation. Raw datasets, checkpoints and full per-scene results remain outside the public repository.
 
 ## CS 6999 research portfolio summary
 
@@ -12,7 +18,7 @@ Research code for **action-conditioned visual world models from sparse physical 
 
 **Implemented:** An auditable threshold-intervention baseline, abstention for underdetermined outcomes, indistinguishable-world counterexamples, randomized finite-case verification, and paired-branch versus independent-supervision evaluation protocols.
 
-**Current evidence boundary:** The simplified RGB threshold experiments have not established a paired-branch advantage. The baseline is not claimed as a novel algorithm; MuJoCo physical-replay validation and compute-matched model comparisons remain research milestones.
+**Evidence boundary of the original prototype:** The simplified RGB threshold experiments have not established a paired-branch advantage. The baseline is not claimed as a novel algorithm; MuJoCo physical-replay validation and compute-matched model comparisons remain research milestones.
 
 **Compute environment:** GPU-backed research iterations use rented NVIDIA RTX 4090 24GB resources. Hardware availability does not imply physical-robot validation or a completed performance claim.
 
