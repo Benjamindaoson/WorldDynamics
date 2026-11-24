@@ -10,7 +10,7 @@ WorldDynamics is a research codebase for studying whether learned predictive mod
 
 > **Central research question:** Can a world model predict not only what is likely to happen next, but how the future changes when an agent chooses a different action from the same physical state?
 
-**Research status:** Reproducible small-scale MuJoCo baselines and negative findings are available. The current experiments do **not** establish a novel algorithm, a general advantage for action conditioning, state-of-the-art performance, or transfer to a physical robot.
+**Research status:** Reproducible small-scale MuJoCo baselines and negative findings are available. The current experiments do **not** establish a novel algorithm, a general advantage for action conditioning, state-of-the-art performance, or transfer to a physical robot. Engineering maturity is **L1 demonstrated, L2 partial, L3 not passed**: state-model data generation, training, checkpoint loading, and independent evaluation are implemented and locally exercised, while action-causality and planning evidence remains negative or incomplete.
 
 <details>
 <summary>中文概要</summary>
@@ -142,7 +142,7 @@ The RSSM predicts from its prior before incorporating the next observation. In f
 
 | Model | Scope | Evidence status |
 |---|---|---|
-| VisualPredictor | Small visual representation and action-conditioned latent prediction baseline | Implemented exploratory baseline |
+| VisualPredictor | Small visual representation and action-conditioned latent prediction baseline | Module implemented; no standalone quantitative result reported |
 | VideoFlow | Compact latent flow-matching video predictor with a deterministic frame codec | Single-seed, low-resolution experiment |
 | JointWorldAction | Shared visual representation with world-prediction and inverse-action heads | Single-seed exploratory experiment |
 
@@ -305,6 +305,22 @@ python -m pip install -e ".[test,research,visualization]"
 ```
 
 For CUDA, install a PyTorch build matching the target CUDA runtime and GPU using the [official PyTorch installation selector](https://pytorch.org/get-started/locally/). GPU training and scaling are not established by the current public experiments.
+
+### Run the test suite
+
+For headless Ubuntu/Linux (the same rendering setup used by GitHub Actions):
+
+```bash
+sudo apt-get update
+sudo apt-get install -y xvfb xauth libgl1-mesa-dri
+xvfb-run -a env MUJOCO_GL=glfw LIBGL_ALWAYS_SOFTWARE=1 python -m pytest -q
+```
+
+On a desktop with a working display and MuJoCo graphics dependencies, run:
+
+```bash
+python -m pytest -q
+```
 
 ## Reproduce the V2 state-model experiments
 
