@@ -1,0 +1,16 @@
+.venv/
+.venv-wsl/
+.codegraph/
+.codex/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+.coverage
+artifacts/
+results/
+runs/
+checkpoints/
+data/
+docs/architecture/*.visual-check*
