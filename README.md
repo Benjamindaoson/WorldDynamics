@@ -27,7 +27,7 @@ See the [V2 baseline and confirmation report](docs/V2_BASELINE_REPORT.md), [long
 
 ## LeWorldModel (LeWM) G0 integration audit
 
-This repository also preserves a separate, evidence-gated integration/preflight track for the upstream [LeWorldModel project](https://github.com/lucas-maes/le-wm), pinned to commit `8edfeb336732b5f3ce7b8b210d0ba370a09e2cac). No upstream model source is copied into this repository.
+This repository also preserves a separate, evidence-gated integration/preflight track for the upstream [LeWorldModel project](https://github.com/lucas-maes/le-wm), pinned to commit `8edfeb336732b5f3ce7b8b210d0ba370a09e2cac`. No upstream model source is copied into this repository.
 
 As of the **2026-10-15 G0 audit**, a fixture passed the `stable-worldmodel` Loader contract and a bounded remote Lance probe read two scalar rows and one 224×224 RGB image from a pinned public candidate dataset revision. This does **not** establish that the full official dataset loads through the LeWM Loader or is equivalent to the published HDF5 data. Full-dataset loading, GPU training, checkpoint production, and independent model evaluation remain unverified; the recorded status is `BOUNDED_LANCE_READ_VERIFIED_GPU_BLOCKED`.
 
@@ -64,4 +64,3 @@ python scripts/evaluate_v2_matrix.py --dataset artifacts/my-v2-data --runs artif
 ```
 
 Run the `confirmatory` family **once only after** model, metric, and analysis choices are frozen. Follow [the preregistered protocol](docs/CONFIRMATORY_PROTOCOL.md). Generated datasets, checkpoints, raw per-scene results, GIFs, and local environments are intentionally excluded from Git; regenerate them locally using the documented scripts and manifests.
-
